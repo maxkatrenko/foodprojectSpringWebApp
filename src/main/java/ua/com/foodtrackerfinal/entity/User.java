@@ -4,10 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Set;
 
 @Entity
 public class User implements UserDetails {
@@ -25,11 +22,23 @@ public class User implements UserDetails {
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private Collection<Role> role;
     private int height; //in cm
     private int weight; //in kg
 
     public User() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     @Override
@@ -53,20 +62,8 @@ public class User implements UserDetails {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
+    public Collection<Role> getAuthorities() {
+        return getRole();
     }
 
     public void setUsername(String username) {
@@ -89,12 +86,12 @@ public class User implements UserDetails {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public Collection<Role> getRoles() {
-        return roles;
+    public Collection<Role> getRole() {
+        return role;
     }
 
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
+    public void setRole(Collection<Role> role) {
+        this.role = role;
     }
 
     public int getHeight() {
@@ -112,6 +109,5 @@ public class User implements UserDetails {
     public void setWeight(int weight) {
         this.weight = weight;
     }
-
 
 }
