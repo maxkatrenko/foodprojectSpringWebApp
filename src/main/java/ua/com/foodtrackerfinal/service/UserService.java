@@ -34,7 +34,7 @@ public class UserService implements UserDetailsService {
         if (!optionalUser.isPresent()) {
             throw new UsernameNotFoundException("User not found");
         }
-        return (UserDetails) optionalUser.get();
+        return optionalUser.get();
     }
 
     public User findUserById(Long userId) {
