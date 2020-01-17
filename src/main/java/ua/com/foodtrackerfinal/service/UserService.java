@@ -10,7 +10,6 @@ import ua.com.foodtrackerfinal.entity.User;
 import ua.com.foodtrackerfinal.repository.RoleRepository;
 import ua.com.foodtrackerfinal.repository.UserRepository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,20 +36,22 @@ public class UserService implements UserDetailsService {
         return optionalUser.get();
     }
 
-    public User findUserById(Long userId) {
-        Optional<User> userFromDb = userRepository.findById(userId);
-        return userFromDb.orElse(new User());
-    }
 
-    public List<User> allUsers() {
-        return userRepository.findAll();
-    }
 
-    public boolean deleteUser(Long userId) {
-        if (userRepository.findById(userId).isPresent()) {
-            userRepository.deleteById(userId);
-            return true;
-        }
-        return false;
-    }
+//    public User findUserById(Long userId) {
+//        Optional<User> userFromDb = userRepository.findById(userId);
+//        return userFromDb.orElse(new User());
+//    }
+
+//    public List<User> allUsers() {
+//        return userRepository.findAll();
+//    }
+
+//    public boolean deleteUser(Long userId) {
+//        if (userRepository.findById(userId).isPresent()) {
+//            userRepository.deleteById(userId);
+//            return true;
+//        }
+//        return false;
+//    }
 }

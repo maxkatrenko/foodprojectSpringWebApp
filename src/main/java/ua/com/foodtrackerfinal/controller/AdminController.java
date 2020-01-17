@@ -1,6 +1,9 @@
 //package ua.com.foodtrackerfinal.controller;
 //
+//import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import ua.com.foodtrackerfinal.service.UserService;
 //
 //@Controller
 //@RequestMapping("/admin")
@@ -19,7 +22,7 @@
 //        model.addAttribute("allUsers", userService.allUsers());
 //        return "admin";
 //    }
-
+//
 //    @PostMapping("/admin")
 //    public String  deleteUser(@RequestParam(required = true, defaultValue = "" ) Long userId,
 //                              @RequestParam(required = true, defaultValue = "" ) String action,

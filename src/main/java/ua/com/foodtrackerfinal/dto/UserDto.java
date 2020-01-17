@@ -15,10 +15,6 @@ public class UserDto {
 
     @NotNull
     @NotEmpty
-    private String confirmedPassword;
-
-    @NotNull
-    @NotEmpty
     private RoleDto role;
 
     @NotNull
@@ -45,14 +41,6 @@ public class UserDto {
         this.password = password;
     }
 
-    public String getConfirmedPassword() {
-        return confirmedPassword;
-    }
-
-    public void setConfirmedPassword(String confirmedPassword) {
-        this.confirmedPassword = confirmedPassword;
-    }
-
     public RoleDto getRole() {
         return role;
     }
@@ -75,5 +63,16 @@ public class UserDto {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
     }
 }
